@@ -1,0 +1,13 @@
+{
+  "name": "FullMean_Customers-Orders",
+  "version": "0.0.1",
+  "dependencies": {
+    "express": "*",
+    "mongoose": "*",
+    "body-parser": "*",
+    "fs": "*",
+    "moment": "*",
+    "nodemailer-sendgrid-transport": "*",
+    "nodemailer": "^0.7.1"
+  }
+}
