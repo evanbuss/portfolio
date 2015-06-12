@@ -523,7 +523,8 @@ font-family: 'Kammerlander';
 
 @media(min-width:399px) {
     #header-text {
-        visibility: hidden;
+        font-family: 'Kammerlander';
+        font-size: 8px;
     }
 }
 
