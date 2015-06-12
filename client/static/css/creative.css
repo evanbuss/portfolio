@@ -521,7 +521,7 @@ font-family: 'Kammerlander';
     }
 }
 
-@media(max-width:326px) {
+@media(min-width:399px) {
     #header-text {
         visibility: hidden;
     }
