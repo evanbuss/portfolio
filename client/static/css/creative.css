@@ -497,11 +497,34 @@ font-family: 'Kammerlander';
 }
 #Kammer {
     font-family: 'Kammerlander';
+    font-size: 15px;
 }
 
-@media(max-width:401px) {
+
+@media(max-width:550px) {
+    #Kammer {
+        font-family: 'Kammerlander';
+        font-size: 12px;
+    }
+}
+
+@media(max-width:400px) {
     #Kammer {
         font-family: 'Kammerlander';
         font-size: 10px;
+    }
+}
+
+@media(max-width:326px) {
+    #Kammer {
+        font-family: 'Kammerlander';
+        font-size: 8px;
+    }
+}
+
+@media(min-width:768px) {
+    #Kammer {
+        font-family: 'Kammerlander';
+        font-size: 15px;
     }
 }
