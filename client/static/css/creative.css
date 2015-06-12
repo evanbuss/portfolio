@@ -492,13 +492,16 @@ font-family: 'Kammerlander';
   font-style: normal;
 }
 
-#newHeight {
-    height: 600px;
-}
-
 #SanFran {
     font-family: 'SanFran';
 }
 #Kammer {
     font-family: 'Kammerlander';
+}
+
+@media(max-width:401px) {
+    #Kammer {
+        font-family: 'Kammerlander';
+        font-size: 10px;
+    }
 }
