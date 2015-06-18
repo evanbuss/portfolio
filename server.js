@@ -6,17 +6,13 @@ var path = require('path');
 var app = express();
 // nodemailer feature
 var nodemailer = require('nodemailer');
-var smtpTransport = nodemailer.createTransport("SMTP",{
-	service: "Gmail",
-	 auth: {
-	    XOAuth2: {
-	      user: "evanbuss@gmail.com",
-	      clientId: "856504234895-b4pf25sfjr8n98ufepusv73sf1fd20un.apps.googleusercontent.com",
-	      clientSecret: "APZ_EfUN9HAIQxI7i_POY-Fm",
-	      refreshToken: "1/YUQ3Ckqw_Spif-MeFW0tpXJsvoxIZ1N2cyBCOp1F3FFIgOrJDtdun6zK6XiATCKT"
-	    }
-	  }
-});
+var ses = require('nodemailer-ses-transport');
+var transporter = nodemailer.createTransport(ses({
+    accessKeyId: 'AKIAJWLUTIAM6JJ5WBPQ',
+    secretAccessKey: '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'
+}));
+
+
 // require body-parser
 var bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded());
@@ -53,7 +49,7 @@ require('./config/mongoose.js');
 			text : req.query.text
 		};
 		console.log(mailOptions);
-		smtpTransport.sendMail(mailOptions, function(error, response){
+		transporter.sendMail(mailOptions, function(error, response){
 			if(error){
 			console.log(error);
 			res.end("error");

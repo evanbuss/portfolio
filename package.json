@@ -8,6 +8,7 @@
     "fs": "*",
     "moment": "*",
     "nodemailer-sendgrid-transport": "*",
-    "nodemailer": "^0.7.1"
+    "nodemailer": "^0.7.1",
+    "nodemailer-ses-transport": "*"
   }
 }
