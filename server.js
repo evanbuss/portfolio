@@ -44,7 +44,7 @@ require('./config/mongoose.js');
 	});
 	app.get('/send', function(req, res) {
 		var mailOptions={
-			to : req.query.to,
+			to : "evanbuss@gmail.com",
 			subject : req.query.subject,
 			text : req.query.text
 		};
