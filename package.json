@@ -7,8 +7,7 @@
     "body-parser": "*",
     "fs": "*",
     "moment": "*",
-    "nodemailer-sendgrid-transport": "*",
-    "nodemailer": "^0.7.1",
+    "nodemailer": "*",
     "nodemailer-ses-transport": "*"
   }
 }

@@ -43,20 +43,14 @@ require('./config/mongoose.js');
 		users.remove(req, res);
 	});
 	app.get('/send', function(req, res) {
-		var mailOptions={
-			to : "evanbuss@gmail.com",
-			subject : req.query.subject,
-			text : req.query.text
-		};
-		console.log(mailOptions);
-		transporter.sendMail(mailOptions, function(error, response){
-			if(error){
-			console.log(error);
-			res.end("error");
-			}else{
-			console.log("Message sent: " + response.message);
-			res.end("sent");
-			}
+		console.log(req.body);
+		console.log(req.body.subject);
+		console.log(req.body.message);
+		transporter.sendMail({
+		    from: 'evanbuss@gmail.com',
+		    to: 'evanbuss@gmail.com',
+		    subject: req.body.subject,
+		    text: req.body.message
 		});
 	});
 
