@@ -30,27 +30,35 @@ require('./config/mongoose.js');
 	app.get('/',function(req,res){
 	  res.sendfile('index.html');
 	});
-  	//gets all users
+  	// get all users
 	app.get('/users', function(req, res) {
 	  users.show(req, res);
 	});
-	// note how we are delegating to the controller and passing along req and res
+	// add a user
 	app.post('/users', function(req, res) {
 		users.add(req, res);
 	});
+	// delete a user
 	app.post('/users/delete', function(req, res) {
 		// console.log(req.body);
 		users.remove(req, res);
 	});
+	// nodemailer feature
 	app.get('/send', function(req, res) {
-		console.log(req.body);
-		console.log(req.body.subject);
-		console.log(req.body.message);
-		transporter.sendMail({
-		    from: 'evanbuss@gmail.com',
-		    to: 'evanbuss@gmail.com',
-		    subject: req.body.subject,
-		    text: req.body.message
+		var mailOptions={
+			to : "evanbuss@gmail.com",
+			subject : req.query.subject,
+			text : req.query.text
+		};
+		console.log(mailOptions);
+		transporter.sendMail(mailOptions, function(error, response){
+			if(error){
+			console.log(error);
+			res.end("error");
+			}else{
+			console.log("Message sent: " + response.message);
+			res.end("sent");
+			}
 		});
 	});
 
