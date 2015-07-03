@@ -43,6 +43,12 @@
     <![endif]-->
 
     <style>
+        .box {
+            height: 75%;
+            width: 87%;
+            margin-left: 7%;
+            box-shadow: 7px 7px 4px grey;
+        }
         #center {
             display: block;
             margin-left: auto;
@@ -99,8 +105,8 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
-        <h1 id="Kammer">User Dashboard </h1>
-            <p>A message board application built with PHP and Codeigniter. Users and Admins are able to post messages and comments to a message board. Users can post and view personal messages to other users and also have the ability to change their profile information.  Admins have full control over all users and user information. </p>
+        <h1 id="Kammer">Facebook Clone</h1>
+            <p>A simple Facebook clone built with PHP and Codeigniter. Users can sign up and post messages and comments on a main feed that all users can see. They can add and delete friends and check out their profile pages where they can leave personal messages. Used bootstrap on the frontend and a MySQL database.</p>
       </div>
     </div>
 
@@ -108,9 +114,8 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12 col-centered"  id="center">
-                    <!-- <a href="/github"><button class="btn btn-primary" id="center-buttons" >GitHub</button></a><br> -->
+                    <a href="https://github.com/evanbuss/Facebook_Clone" target="_blank"><button class="btn btn-primary" id="center-buttons" >GitHub</button></a><br>
                     <!-- <a href=""><button class="btn btn-primary" id="center-buttons" data-toggle="modal" data-target="#wireFrameModal">WireFrame</button></a><br> -->
-                    <a href=""><button class="btn btn-primary" id="center-buttons" data-toggle="modal" data-target="#myModal">View Demo</button></a>
                 </div>
             </div>
         </div>
@@ -119,31 +124,13 @@
     <section class="center-block" id="padding-top">
         <div class="container-fluid">
             <div class="row">
-                    <img src="/static/img/UD-big.png" id="center-pic" class="img-responsive" height="500" width="750" alt="">
+                <video id="video" class="box" autoplay loop muted>
+                  <source src="/static/vid/facebook-demo.mp4" type="video/mp4">
+                </video>
             </div>
         </div>
     </section>
 
-
-        <!-- Modal -->
-        <div id="myModal" class="modal fade" role="dialog">
-          <div class="modal-dialog">
-
-            <!-- Modal content-->
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-              </div>
-              <div class="modal-body">
-                <p>Coming Very Soon..</p>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              </div>
-            </div>
-
-          </div>
-        </div>
 
     <!-- jQuery -->
     <script src="/static/js/jquery.js"></script>

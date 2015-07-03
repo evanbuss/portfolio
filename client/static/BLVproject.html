@@ -43,6 +43,12 @@
     <![endif]-->
 
     <style>
+        .box {
+            height: 75%;
+            width: 87%;
+            margin-left: 7%;
+            box-shadow: 7px 7px 4px grey;
+        }
         #center {
             display: block;
             margin-left: auto;
@@ -102,9 +108,9 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12 col-centered"  id="center">
-                    <!-- <a href=""><button class="btn btn-primary" id="center">GitHub</button></a><br> -->
+                    <a href=""><button class="btn btn-primary" id="center" data-toggle="modal" data-target="#myModal">GitHub</button></a><br>
                     <!-- <a href=""><button class="btn btn-primary" id="center" data-toggle="modal" data-target="#wireframeModal">Wireframe</button></a><br> -->
-                    <a href=""><button class="btn btn-primary" id="center" data-toggle="modal" data-target="#myModal">View Demo</button></a>
+                    <!-- <a href=""><button class="btn btn-primary" id="center">View Demo</button></a> -->
                 </div>
             </div>
         </div>
@@ -113,7 +119,9 @@
     <section class="center-block" id="padding-top">
         <div class="container-fluid">
             <div class="row">
-                    <img src="/static/img/BLV-big.png" id="center-pic" class="img-responsive"height="500" width="750" alt="">
+                <video id="video" class="box" autoplay loop muted>
+                  <source src="/static/vid/BLV-demo.mp4" type="video/mp4">
+                </video>
             </div>
         </div>
     </section>

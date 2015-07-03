@@ -43,6 +43,12 @@
     <![endif]-->
 
     <style>
+        .box {
+            height: 75%;
+            width: 87%;
+            margin-left: 7%;
+            box-shadow: 7px 7px 4px grey;
+        }
         #center {
             display: block;
             margin-left: auto;
@@ -102,8 +108,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12 col-centered"  id="center">
-                    <!-- <a href=""><button class="btn btn-primary" id="center">GitHub</button></a><br> -->
-                    <a href=""><button class="btn btn-primary" id="center" data-toggle="modal" data-target="#myModal">View Demo</button></a>
+                    <a href="http://www.thebusslab.com" target="_blank"><button class="btn btn-primary" id="center">View Demo</button></a>
                 </div>
             </div>
         </div>
@@ -112,30 +117,12 @@
     <section class="center-block" id="padding-top">
         <div class="container-fluid">
             <div class="row">
-                    <img src="/static/img/busslab-big.png" id="center-pic" class="img-responsive" height="500" width="750" alt="">
+                <video id="video" class="box" autoplay loop muted>
+                  <source src="/static/vid/Lab-demo.mp4" type="video/mp4">
+                </video>
             </div>
         </div>
     </section>
-
-            <!-- Modal -->
-        <div id="myModal" class="modal fade" role="dialog">
-          <div class="modal-dialog">
-
-            <!-- Modal content-->
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-              </div>
-              <div class="modal-body">
-                <a href="http://www.thebusslab.com" TARGET="_blank">www.thebusslab.com</a>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              </div>
-            </div>
-
-          </div>
-        </div>
 
     <!-- jQuery -->
     <script src="/static/js/jquery.js"></script>
