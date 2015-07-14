@@ -6,11 +6,14 @@ var path = require('path');
 var app = express();
 // nodemailer feature
 var nodemailer = require('nodemailer');
-var ses = require('nodemailer-ses-transport');
-var transporter = nodemailer.createTransport(ses({
-    accessKeyId: 'AKIAJWLUTIAM6JJ5WBPQ',
-    secretAccessKey: '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'
-}));
+var smtpTransport = nodemailer.createTransport("SMTP",{
+   service: "Gmail",  // sets automatically host, port and connection security settings
+   auth: {
+       user: "email@gmail.com",
+       pass: "gmailPassword"
+   }
+});
+
 
 
 // require body-parser
@@ -51,18 +54,19 @@ require('./config/mongoose.js');
 			text : req.query.text
 		};
 		console.log(mailOptions);
-		transporter.sendMail(mailOptions, function(error, response){
-			if(error){
-			console.log(error);
-			res.end("error");
-			}else{
-			console.log("Message sent: " + response.message);
-			res.end("sent");
-			}
-		});
+		smtpTransport.sendMail( mailOptions, function(error, response){  //callback
+		   if(error){
+		       console.log(error);
+		   }else{
+		       console.log("Message sent: " + response.message);
+		   }
 	});
+   smtpTransport.close(); // shut down the connection pool, no more messages.  Comment this line out to continue sending emails.
+});
 
 // listen on port 8000
 app.listen(8000, function() {
   console.log('Listening on port: 8000');
 });
+
+

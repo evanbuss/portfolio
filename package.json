@@ -8,6 +8,7 @@
     "fs": "*",
     "moment": "*",
     "nodemailer": "*",
-    "nodemailer-ses-transport": "*"
+    "nodemailer-ses-transport": "*",
+    "nodemailer-smtp-transport": "^1.0.3"
   }
 }

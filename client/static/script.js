@@ -22,7 +22,7 @@ personal_app.factory('UserFactory', function($http) {
         callback(users);
       });
     };
-  // note the use of callbacks!
+  // callback function
   factory.addUser = function(info, callback) {
     console.log('shit right here',info);
     $http.post('/users',info).success(function(output) {
@@ -48,11 +48,10 @@ personal_app.factory('UserFactory', function($http) {
 personal_app.controller('UsersController', function($scope, UserFactory) {
     UserFactory.getUsers(function(data) {
       $scope.users = data;
-      // anything else that you want to happen after you getUsers needs to be inside of this callback
       });
   $scope.addUser = function() {
     console.log('in front end controller', $scope.new_user);
-  // note the use of callbacks here
+  // callback function
     $scope.new_user.created_at = moment().format('MMMM Do, YYYY');
     UserFactory.addUser($scope.new_user, function(data) {
       $scope.users = data;  // data goes into the callback function
@@ -69,7 +68,6 @@ personal_app.controller('UsersController', function($scope, UserFactory) {
       $scope.users = data;
     UserFactory.getUsers(function(data) {
       $scope.users = data;
-      // anything else that you want to happen after you getUsers needs to be inside of this callback
       });
     });
   };
