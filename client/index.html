@@ -41,22 +41,6 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <script>
-    $(document).ready(function(){
-        var from,subject,text;
-        var to = "evanbuss@gmail.com";
-        $("#send_email").click(function(){
-            subject=$("#subject").val();
-            text=$("#content").val();
-            $("#message").text("Sending E-mail...Please wait");
-            $.get("http://localhost:8000/send",{to:to,subject:subject,text:text},function(data){
-            if(data=="sent") {
-                $("#message").empty().html("E-mail was Successful!");
-                }
-            });
-        });
-    });
-    </script>
 
 
 </head>
