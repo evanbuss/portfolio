@@ -40,11 +40,32 @@ personal_app.factory('UserFactory', function($http) {
   return factory;
 });
 
+// ---------------------------
+// Message Factory
+// ---------------------------
+personal_app.factory('MessageFactory', function($http) {
+  var factory = {};
+  var messages = [];
+  factory.getMessages = function(callback) {
+    $http.get('/messages').success(function(output) {
+        messages = output;
+        // console.log('MessageFactory getMessages() gave', output);
+        callback(output);
+      });
+    };
+  factory.addMessage = function(info, callback) {
+    $http.post('/messages',info).success(function(output) {
+        // console.log('factory', output);
+        messages.push(output);
+        callback(messages);
+    });
+  };
+  return factory;
+});
 
-
- // -------------------------
+ // #########################
  // User Controller
- // -------------------------
+ // #########################
 personal_app.controller('UsersController', function($scope, UserFactory) {
     UserFactory.getUsers(function(data) {
       $scope.users = data;
@@ -71,6 +92,27 @@ personal_app.controller('UsersController', function($scope, UserFactory) {
       });
     });
   };
+
+});
+
+// #########################
+// Message Controller
+// #########################
+personal_app.controller('MessageController', function($scope, MessageFactory) {
+  MessageFactory.getMessages(function(data) {
+      $scope.messages = data;
+  });
+  $scope.addMessage = function() {
+    // using Moment.js to format date
+    $scope.new_message.created_at = moment().format('MMMM Do, YYYY');
+      MessageFactory.addMessage($scope.new_message, function(data) {
+        $scope.messages = data;  // data goes into the callback function
+        $scope.new_message = {}; // this clears out the input fields
+      MessageFactory.getMessages(function(data) {
+        $scope.messages = data;
+        });
+      });
+    };
 
 });
 

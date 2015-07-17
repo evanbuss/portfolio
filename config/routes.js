@@ -5,6 +5,8 @@
 
   // require users.js controller
   var users = require('./../Server/controllers/users.js');
+  var messages = require('./../Server/controllers/messages.js');
+
 
   	//gets all users
 	app.get('/users', function(req, res) {
@@ -18,5 +20,11 @@
 		// console.log(req.body);
 		users.remove(req, res);
 	});
+    app.get('/messages', function(req, res) {
+      messages.show(req, res);
+    });
+    app.post('/messages', function(req, res) {
+      messages.add(req, res);
+    });
 
   };
