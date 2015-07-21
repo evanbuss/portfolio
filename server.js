@@ -15,6 +15,10 @@ app.use(express.static(path.join(__dirname, './client')));
 require('./config/mongoose.js');
 require('./config/routes.js')(app);
 
+app.get('/static/admin.html', function(req,res){
+	res.sendfile('/static/admin.html');
+});
+
 // listen on port 8000
 app.listen(8000, function() {
   console.log('Listening on port: 8000');

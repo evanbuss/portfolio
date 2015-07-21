@@ -16,7 +16,12 @@ var object = {};
 
 	object.add = function(req, res) {
 		// console.log('server controller', req.body);
-		var new_message = new Message({ name: req.body.name, email:req.body.email, subject: req.body.subject, message: req.body.message , created_at: req.body.created_at});
+		var new_message = new Message({ name: req.body.name,
+										email:req.body.email,
+										subject: req.body.subject,
+										message: req.body.message ,
+										created_at: req.body.created_at
+									});
 		new_message.save(function(err, response)
 		{
 			if(err) {

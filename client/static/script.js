@@ -114,5 +114,18 @@ personal_app.controller('MessageController', function($scope, MessageFactory) {
       });
     };
 
+  $scope.validation = function(data) {
+    function validate() {
+      if(data.input === "scope.show") {
+        console.log("valid");
+          $scope.valid = {
+              show: true,
+              hide: false
+          };
+      }
+    }
+    validate();
+  };
+
 });
 

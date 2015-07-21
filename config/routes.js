@@ -20,11 +20,11 @@
 		// console.log(req.body);
 		users.remove(req, res);
 	});
-    app.get('/messages', function(req, res) {
-      messages.show(req, res);
-    });
-    app.post('/messages', function(req, res) {
-      messages.add(req, res);
-    });
+  app.get('/messages', function(req, res) {
+    messages.show(req, res);
+  });
+  app.post('/messages', function(req, res) {
+    messages.add(req, res);
+  });
 
-  };
+};
