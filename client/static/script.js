@@ -24,7 +24,7 @@ personal_app.factory('UserFactory', function($http) {
     };
   // callback function
   factory.addUser = function(info, callback) {
-    console.log('shit right here',info);
+    console.log('info here',info);
     $http.post('/users',info).success(function(output) {
         users.push(output);
         callback(users);
@@ -98,13 +98,16 @@ personal_app.controller('UsersController', function($scope, UserFactory) {
 // #########################
 // Message Controller
 // #########################
-personal_app.controller('MessageController', function($scope, MessageFactory) {
+personal_app.controller('MessageController', function($scope, MessageFactory, UserFactory) {
   MessageFactory.getMessages(function(data) {
       $scope.messages = data;
   });
   $scope.addMessage = function() {
+    $scope.new_user = {};
+    var user_data = $scope.new_message;
     // using Moment.js to format date
     $scope.new_message.created_at = moment().format('MMMM Do, YYYY');
+    // add message
       MessageFactory.addMessage($scope.new_message, function(data) {
         $scope.messages = data;  // data goes into the callback function
         $scope.new_message = {}; // this clears out the input fields
@@ -112,19 +115,26 @@ personal_app.controller('MessageController', function($scope, MessageFactory) {
         $scope.messages = data;
         });
       });
+      // add user
+      $scope.new_user.name = user_data.name;
+      $scope.new_user.created_at = user_data.created_at;
+      $scope.new_user.created_at = moment().format('MMMM Do, YYYY');
+      UserFactory.addUser($scope.new_user, function(data) {
+          $scope.users = data;  // data goes into the callback function
+      });
     };
 
-  $scope.validation = function(data) {
-    function validate() {
+  $scope.removeMessage = function(data) {
+    function removeIt() {
       if(data.input === "scope.show") {
-        console.log("valid");
           $scope.valid = {
               show: true,
               hide: false
           };
       }
     }
-    validate();
+    removeIt();
+    data.input = ""; // clears input field
   };
 
 });
