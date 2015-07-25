@@ -121,6 +121,9 @@ personal_app.controller('MessageController', function($scope, MessageFactory, Us
       $scope.new_user.created_at = moment().format('MMMM Do, YYYY');
       UserFactory.addUser($scope.new_user, function(data) {
           $scope.users = data;  // data goes into the callback function
+      UserFactory.getUsers(function(data) {
+          $scope.users = data; // get users from db
+        });
       });
     };
 

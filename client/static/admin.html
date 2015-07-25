@@ -1,6 +1,8 @@
 <html ng-app="personal_app">
 	<head>
 		<title>Admin Control</title>
+		    <!-- favicon -->
+	    <link rel="shortcut icon" href="/static/img/skins.ico">
 		    <!-- JQuery -->
 	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	    <script src="/static/js/jquery.validate.js"></script>
@@ -174,6 +176,9 @@
 								<p><b id="label">Message:</b> {{ message.message }}</p>
 								<h5 class="pull-right"><b id="label">E-Mail:</b> {{ message.email }}</h5>
 							</div>
+						</div>
+						<div ng-repeat="user in users">
+							<p> {{ user }}</p>
 						</div>
 					</div>
 				</div>
